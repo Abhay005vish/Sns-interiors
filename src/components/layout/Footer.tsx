@@ -1,18 +1,20 @@
 import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin, MessageCircle } from 'lucide-react';
+import { useSiteSettings } from "../../context/SiteSettingsContext";
 
 export function Footer() {
+   const { settings } = useSiteSettings();
   return (
     <footer className="bg-card border-t border-border">
       <div className="container mx-auto px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
             <h3 className="text-xl font-heading font-bold text-primary mb-4">
-              SnS Interiors
-            </h3>
+  {settings.businessName}
+</h3>
             <p className="text-muted-foreground mb-4">
-              Premium Interiors, Timeless Furniture
-            </p>
+  {settings.tagline}
+</p>
             <p className="text-sm text-muted-foreground">
               Transforming spaces across Mumbai with premium design and craftsmanship.
             </p>
@@ -56,25 +58,25 @@ export function Footer() {
               <div className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
                 <p className="text-muted-foreground">
-                  Mumbai, Maharashtra
+                  {settings.address}
                 </p>
               </div>
               <div className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-primary flex-shrink-0" />
-                <a href="tel:+919876543210" className="text-muted-foreground hover:text-primary">
-                  +91 98765 43210
+                <a href={`tel:${settings.phone.replace(/\D/g, "")}`} className="text-muted-foreground hover:text-primary">
+                 {settings.phone}
                 </a>
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-primary flex-shrink-0" />
-                <a href="mailto:info@snsinteriors.com" className="text-muted-foreground hover:text-primary">
-                  info@snsinteriors.com
+                <a href={`mailto:${settings.email}`} className="text-muted-foreground hover:text-primary">
+                  {settings.email}
                 </a>
               </div>
               <div className="flex items-center gap-3">
                 <MessageCircle className="w-5 h-5 text-primary flex-shrink-0" />
                 <a
-                  href="https://wa.me/919876543210"
+                  href={`https://wa.me/${settings.whatsapp.replace(/\D/g, "")}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-muted-foreground hover:text-primary"

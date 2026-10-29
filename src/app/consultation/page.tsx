@@ -1,9 +1,12 @@
 import { useState } from 'react';
+import { SEO } from '../../components/seo/SEO';
 import { CheckCircle, Calendar, Clock } from 'lucide-react';
 import { motion } from 'motion/react';
-import { projectId, publicAnonKey } from '/utils/supabase/info';
+import { apiFetch } from '../../../utils/supabase/api';
+import { useSiteSettings } from "../../context/SiteSettingsContext";
 
 export default function Consultation() {
+  const { settings } = useSiteSettings();
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -16,32 +19,32 @@ export default function Consultation() {
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
+  e.preventDefault();
+  setLoading(true);
 
-    try {
-      const response = await fetch(
-        `https://${projectId}.supabase.co/functions/v1/make-server-664a60c7/consultations`,
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${publicAnonKey}`
-          },
-          body: JSON.stringify(formData)
-        }
-      );
-
-      if (response.ok) {
-        setSubmitted(true);
+  try {
+    const data = await apiFetch(
+      "/make-server-664a60c7/consultations",
+      {
+        method: "POST",
+        body: JSON.stringify(formData),
       }
-    } catch (error) {
-      console.error('Error booking consultation:', error);
-    } finally {
-      setLoading(false);
-    }
-  };
+    );
 
+    console.log("Consultation booked:", data);
+
+    setSubmitted(true);
+  } catch (error: any) {
+    console.error("Error booking consultation:", error);
+
+    alert(
+      error?.message ||
+        "Unable to book consultation. Please try again."
+    );
+  } finally {
+    setLoading(false);
+  }
+};
   const benefits = [
     'Free on-site visit',
     'Expert design consultation',
@@ -52,6 +55,12 @@ export default function Consultation() {
   ];
 
   return (
+  <>
+    <SEO
+      title="Book a Free Interior Consultation | SnS Interiors"
+      description="Book a free interior design consultation with SnS Interiors. Discuss your 2BHK or 3BHK home interior, furniture and modular kitchen requirements."
+    />
+
     <div className="min-h-screen">
       {/* Hero */}
       <section className="bg-primary text-primary-foreground py-20">
@@ -179,7 +188,7 @@ export default function Consultation() {
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         className="w-full px-4 py-3 bg-input-background rounded-lg border border-border focus:outline-none focus:ring-2 focus:ring-ring"
-                        placeholder="+91 98765 43210"
+                        placeholder="+91 98206 34394"
                       />
                     </div>
 
@@ -273,6 +282,7 @@ export default function Consultation() {
           </div>
         </div>
       </section>
-    </div>
+        </div>
+  </>
   );
 }

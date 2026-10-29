@@ -1,24 +1,36 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, CheckCircle, Phone, MessageCircle } from 'lucide-react';
+import { SEO } from '../components/seo/SEO';
+import {
+  ArrowRight,
+  CheckCircle,
+  Phone,
+} from 'lucide-react';
 import { motion } from 'motion/react';
+import { Hero } from '../components/sections/hero';
 
 export default function Home() {
   const services = [
     {
       title: 'Interior Design',
-      description: 'Complete home design solutions tailored to your lifestyle',
-      image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=600'
+      description:
+        'Complete home design solutions tailored to your lifestyle.',
+      image:
+        'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=900',
     },
     {
       title: 'Custom Furniture',
-      description: 'Bespoke furniture designed and crafted for your space',
-      image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600'
+      description:
+        'Bespoke furniture designed and crafted specifically for your space.',
+      image:
+        'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=900',
     },
     {
       title: 'Modular Kitchen',
-      description: 'Functional and stylish kitchen solutions',
-      image: 'https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?w=600'
-    }
+      description:
+        'Functional, elegant and practical kitchen solutions for modern homes.',
+      image:
+        'https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?w=900',
+    },
   ];
 
   const pricingPackages = [
@@ -26,198 +38,283 @@ export default function Home() {
       name: 'Essential',
       budget: '₹5L - ₹8L',
       property: '2BHK',
-      features: ['Complete Interior Design', 'Modular Kitchen', 'Wardrobe', '1 Year Warranty']
+      features: [
+        'Complete Interior Design',
+        'Modular Kitchen',
+        'Wardrobe',
+        '1 Year Warranty',
+      ],
     },
     {
       name: 'Premium',
       budget: '₹8L - ₹12L',
       property: '3BHK',
-      features: ['Premium Materials', 'Custom Furniture', 'Lighting Design', '2 Year Warranty'],
-      popular: true
+      features: [
+        'Premium Materials',
+        'Custom Furniture',
+        'Lighting Design',
+        '2 Year Warranty',
+      ],
+      popular: true,
     },
     {
       name: 'Luxury',
       budget: '₹12L+',
       property: '3BHK+',
-      features: ['Luxury Finishes', 'Designer Furniture', 'Smart Home Integration', '3 Year Warranty']
-    }
+      features: [
+        'Luxury Finishes',
+        'Designer Furniture',
+        'Smart Home Integration',
+        '3 Year Warranty',
+      ],
+    },
   ];
 
   const process = [
-    { step: 1, title: 'Consultation', description: 'Free design consultation at your property' },
-    { step: 2, title: 'Design', description: '3D visualization and material selection' },
-    { step: 3, title: 'Execution', description: 'Professional installation with timeline' },
-    { step: 4, title: 'Handover', description: 'Quality check and warranty activation' }
+    {
+      step: 1,
+      title: 'Consultation',
+      description: 'Free design consultation at your property.',
+    },
+    {
+      step: 2,
+      title: 'Design',
+      description: '3D visualization and material selection.',
+    },
+    {
+      step: 3,
+      title: 'Execution',
+      description: 'Professional installation with a clear timeline.',
+    },
+    {
+      step: 4,
+      title: 'Handover',
+      description: 'Quality check and warranty activation.',
+    },
   ];
 
   const faqs = [
     {
       question: 'How long does a typical project take?',
-      answer: '2BHK projects typically take 45-60 days, while 3BHK projects take 60-90 days from design approval.'
+      answer:
+        '2BHK projects typically take 45-60 days, while 3BHK projects take 60-90 days from design approval.',
     },
     {
       question: 'Do you provide warranty?',
-      answer: 'Yes, we provide 1-3 year warranty depending on your package, covering materials and workmanship.'
+      answer:
+        'Yes, we provide 1-3 year warranty depending on your package, covering materials and workmanship.',
     },
     {
       question: 'What is included in the pricing?',
-      answer: 'Our pricing includes design, materials, furniture, installation, and project management. No hidden costs.'
+      answer:
+        'Our pricing includes design, materials, furniture, installation, and project management. No hidden costs.',
     },
     {
       question: 'Can I customize the packages?',
-      answer: 'Absolutely! Our packages are flexible and can be customized to match your specific requirements and budget.'
-    }
+      answer:
+        'Absolutely! Our packages are flexible and can be customized to match your specific requirements and budget.',
+    },
   ];
 
   return (
+  <>
+    <SEO
+      title="SnS Interiors | Premium Interiors, Timeless Furniture"
+      description="SnS Interiors creates premium home interiors, custom furniture and modular kitchens for modern 2BHK and 3BHK homes."
+    />
+
+    <script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "HomeAndConstructionBusiness",
+      name: "SnS Interiors",
+      url: "https://snsinteriors.in/",
+      description:
+        "Premium interior design, custom furniture and modular kitchen solutions for modern homes.",
+      slogan: "Premium Interiors, Timeless Furniture",
+      areaServed: {
+        "@type": "City",
+        name: "Mumbai",
+      },
+      serviceType: [
+        "Home Interior Design",
+        "2BHK Interior Design",
+        "3BHK Interior Design",
+        "Modular Kitchen Design",
+        "Custom Furniture",
+      ],
+    }),
+  }}
+/>
+
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative h-[90vh] flex items-center justify-center overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: 'url(https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1920)',
-            filter: 'brightness(0.4)'
-          }}
-        />
-        <div className="relative z-10 text-center text-white px-6 max-w-4xl mx-auto">
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-5xl md:text-7xl font-heading font-bold mb-6"
-          >
-            Premium Interiors,
-            <br />
-            Timeless Furniture
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-xl md:text-2xl mb-8 text-gray-200"
-          >
-            Transform your space with Mumbai's trusted interior design experts
-          </motion.p>
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
-          >
-            <Link
-              to="/consultation"
-              className="px-8 py-4 bg-accent text-accent-foreground rounded-lg font-semibold hover:opacity-90 transition-opacity inline-flex items-center justify-center gap-2"
-            >
-              Book Free Consultation
-              <ArrowRight className="w-5 h-5" />
-            </Link>
-            <a
-              href="https://wa.me/919876543210"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-8 py-4 bg-white/10 backdrop-blur-sm text-white border-2 border-white rounded-lg font-semibold hover:bg-white/20 transition-colors inline-flex items-center justify-center gap-2"
-            >
-              <MessageCircle className="w-5 h-5" />
-              WhatsApp Us
-            </a>
-          </motion.div>
-        </div>
-      </section>
 
-      {/* Services Overview */}
-      <section className="py-20 bg-card">
+      {/* ==================== HERO ==================== */}
+      <Hero />
+
+      {/* ==================== SERVICES ==================== */}
+      <section className="bg-background py-24">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-heading font-bold mb-4">Our Services</h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              End-to-end interior solutions from design to installation
-            </p>
-          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mb-14 text-center"
+          >
+            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.25em] text-primary">
+              What We Do
+            </p>
+
+            <h2 className="font-heading text-4xl font-semibold md:text-5xl">
+              Our Services
+            </h2>
+
+            <p className="mx-auto mt-5 max-w-2xl text-lg text-muted-foreground">
+              End-to-end interior solutions designed around your lifestyle,
+              space and vision.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             {services.map((service, index) => (
               <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
+                key={service.title}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="group cursor-pointer"
+                transition={{
+                  duration: 0.6,
+                  delay: index * 0.12,
+                }}
+                className="group"
               >
-                <div className="relative h-64 rounded-lg overflow-hidden mb-4">
+                <div className="relative mb-6 h-[420px] overflow-hidden rounded-2xl">
+
                   <img
                     src={service.image}
                     alt={service.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
+
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+
+                  <div className="absolute bottom-0 left-0 right-0 p-7 text-white">
+                    <h3 className="font-heading text-3xl font-semibold">
+                      {service.title}
+                    </h3>
+
+                    <p className="mt-3 max-w-sm text-sm leading-6 text-white/85">
+                      {service.description}
+                    </p>
+
+                    <Link
+                      to="/services"
+                      className="mt-5 inline-flex items-center gap-2 text-sm font-semibold transition-all group-hover:gap-3"
+                    >
+                      Explore Service
+                      <ArrowRight className="h-4 w-4" />
+                    </Link>
+                  </div>
                 </div>
-                <h3 className="text-2xl font-heading font-semibold mb-2">{service.title}</h3>
-                <p className="text-muted-foreground">{service.description}</p>
               </motion.div>
             ))}
           </div>
 
-          <div className="text-center mt-12">
+          <div className="mt-12 text-center">
             <Link
               to="/services"
-              className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all"
+              className="inline-flex items-center gap-2 border-b border-primary pb-1 font-semibold text-primary transition-all hover:gap-3"
             >
               View All Services
-              <ArrowRight className="w-5 h-5" />
+              <ArrowRight className="h-5 w-5" />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Pricing Overview */}
-      <section className="py-20 bg-background">
+      {/* ==================== PRICING ==================== */}
+      <section className="bg-card py-24">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-heading font-bold mb-4">Transparent Pricing</h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Choose the package that fits your budget and requirements
+
+          <div className="mb-14 text-center">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.25em] text-primary">
+              Investment
+            </p>
+
+            <h2 className="font-heading text-4xl font-semibold md:text-5xl">
+              Transparent Pricing
+            </h2>
+
+            <p className="mx-auto mt-5 max-w-2xl text-lg text-muted-foreground">
+              Choose a package that fits your home, requirements and budget.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 md:grid-cols-3">
             {pricingPackages.map((pkg, index) => (
               <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
+                key={pkg.name}
+                initial={{ opacity: 0, y: 25 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className={`relative p-8 rounded-lg ${
+                transition={{
+                  duration: 0.5,
+                  delay: index * 0.1,
+                }}
+                className={`relative rounded-2xl p-8 ${
                   pkg.popular
-                    ? 'bg-primary text-primary-foreground shadow-2xl scale-105'
-                    : 'bg-card border border-border'
+                    ? 'bg-primary text-primary-foreground shadow-2xl md:scale-105'
+                    : 'border border-border bg-background'
                 }`}
               >
                 {pkg.popular && (
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-accent text-accent-foreground rounded-full text-sm font-semibold">
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-accent px-5 py-2 text-xs font-semibold uppercase tracking-wider text-accent-foreground">
                     Most Popular
                   </div>
                 )}
-                <h3 className="text-2xl font-heading font-bold mb-2">{pkg.name}</h3>
-                <p className={`text-sm mb-4 ${pkg.popular ? 'text-primary-foreground/80' : 'text-muted-foreground'}`}>
+
+                <h3 className="font-heading text-2xl font-semibold">
+                  {pkg.name}
+                </h3>
+
+                <p
+                  className={`mt-2 text-sm ${
+                    pkg.popular
+                      ? 'text-primary-foreground/70'
+                      : 'text-muted-foreground'
+                  }`}
+                >
                   {pkg.property}
                 </p>
-                <p className="text-3xl font-bold mb-6">{pkg.budget}</p>
-                <ul className="space-y-3 mb-8">
-                  {pkg.features.map((feature, i) => (
-                    <li key={i} className="flex items-start gap-2">
-                      <CheckCircle className={`w-5 h-5 mt-0.5 flex-shrink-0 ${pkg.popular ? '' : 'text-primary'}`} />
+
+                <p className="mt-6 text-4xl font-semibold">
+                  {pkg.budget}
+                </p>
+
+                <div className="my-8 h-px bg-current opacity-10" />
+
+                <ul className="space-y-4">
+                  {pkg.features.map((feature) => (
+                    <li
+                      key={feature}
+                      className="flex items-start gap-3 text-sm"
+                    >
+                      <CheckCircle className="mt-0.5 h-5 w-5 shrink-0" />
                       <span>{feature}</span>
                     </li>
                   ))}
                 </ul>
+
                 <Link
                   to="/quote"
-                  className={`block w-full py-3 rounded-lg font-semibold text-center transition-opacity ${
+                  className={`mt-8 block w-full rounded-lg py-3 text-center font-semibold transition-opacity hover:opacity-90 ${
                     pkg.popular
-                      ? 'bg-white text-primary hover:opacity-90'
-                      : 'bg-primary text-primary-foreground hover:opacity-90'
+                      ? 'bg-white text-primary'
+                      : 'bg-primary text-primary-foreground'
                   }`}
                 >
                   Get Quote
@@ -226,99 +323,145 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="text-center mt-12">
+          <div className="mt-12 text-center">
             <Link
               to="/pricing"
-              className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all"
+              className="inline-flex items-center gap-2 font-semibold text-primary hover:gap-3"
             >
               View Detailed Pricing
-              <ArrowRight className="w-5 h-5" />
+              <ArrowRight className="h-5 w-5" />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Process Timeline */}
-      <section className="py-20 bg-card">
+      {/* ==================== PROCESS ==================== */}
+      <section className="bg-background py-24">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-heading font-bold mb-4">Our Process</h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Simple, transparent, and hassle-free
+
+          <div className="mb-14 text-center">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.25em] text-primary">
+              How It Works
+            </p>
+
+            <h2 className="font-heading text-4xl font-semibold md:text-5xl">
+              Our Process
+            </h2>
+
+            <p className="mx-auto mt-5 max-w-2xl text-lg text-muted-foreground">
+              Simple, transparent and hassle-free from the first conversation
+              to final handover.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-6xl mx-auto">
+          <div className="mx-auto grid max-w-6xl grid-cols-1 gap-10 md:grid-cols-4">
             {process.map((item, index) => (
               <motion.div
-                key={index}
+                key={item.step}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
+                transition={{
+                  duration: 0.5,
+                  delay: index * 0.1,
+                }}
                 className="text-center"
               >
-                <div className="w-16 h-16 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
+                <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-primary text-2xl font-semibold text-primary-foreground">
                   {item.step}
                 </div>
-                <h3 className="text-xl font-heading font-semibold mb-2">{item.title}</h3>
-                <p className="text-muted-foreground">{item.description}</p>
+
+                <h3 className="font-heading text-xl font-semibold">
+                  {item.title}
+                </h3>
+
+                <p className="mt-3 text-muted-foreground">
+                  {item.description}
+                </p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="py-20 bg-background">
+      {/* ==================== FAQ ==================== */}
+      <section className="bg-card py-24">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-heading font-bold mb-4">Frequently Asked Questions</h2>
+
+          <div className="mb-14 text-center">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.25em] text-primary">
+              FAQ
+            </p>
+
+            <h2 className="font-heading text-4xl font-semibold md:text-5xl">
+              Frequently Asked Questions
+            </h2>
           </div>
 
-          <div className="max-w-3xl mx-auto space-y-6">
+          <div className="mx-auto max-w-3xl space-y-5">
             {faqs.map((faq, index) => (
               <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
+                key={faq.question}
+                initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-card p-6 rounded-lg border border-border"
+                transition={{
+                  duration: 0.4,
+                  delay: index * 0.08,
+                }}
+                className="rounded-xl border border-border bg-background p-6"
               >
-                <h3 className="font-heading font-semibold text-lg mb-2">{faq.question}</h3>
-                <p className="text-muted-foreground">{faq.answer}</p>
+                <h3 className="font-heading text-lg font-semibold">
+                  {faq.question}
+                </h3>
+
+                <p className="mt-3 leading-7 text-muted-foreground">
+                  {faq.answer}
+                </p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-primary text-primary-foreground">
+      {/* ==================== CTA ==================== */}
+      <section className="bg-primary py-24 text-primary-foreground">
         <div className="container mx-auto px-6 text-center">
-          <h2 className="text-4xl font-heading font-bold mb-4">Ready to Transform Your Space?</h2>
-          <p className="text-xl mb-8 text-primary-foreground/90 max-w-2xl mx-auto">
-            Get started with a free consultation and see how we can bring your vision to life
+
+          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.25em] opacity-80">
+            Let's Create Something Beautiful
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+
+          <h2 className="font-heading text-4xl font-semibold md:text-5xl">
+            Ready to Transform Your Space?
+          </h2>
+
+          <p className="mx-auto mt-5 max-w-2xl text-lg opacity-90">
+            Get started with a free consultation and let us bring your vision
+            to life.
+          </p>
+
+          <div className="mt-9 flex flex-col justify-center gap-4 sm:flex-row">
             <Link
               to="/consultation"
-              className="px-8 py-4 bg-white text-primary rounded-lg font-semibold hover:opacity-90 transition-opacity inline-flex items-center justify-center gap-2"
+              className="inline-flex items-center justify-center gap-2 rounded-lg bg-white px-8 py-4 font-semibold text-primary transition-opacity hover:opacity-90"
             >
               Book Free Consultation
-              <ArrowRight className="w-5 h-5" />
+              <ArrowRight className="h-5 w-5" />
             </Link>
+
             <a
-              href="tel:+919876543210"
-              className="px-8 py-4 bg-primary-foreground/10 backdrop-blur-sm border-2 border-white rounded-lg font-semibold hover:bg-primary-foreground/20 transition-colors inline-flex items-center justify-center gap-2"
+              href="tel:+91 92432 68385"
+              className="inline-flex items-center justify-center gap-2 rounded-lg border-2 border-white px-8 py-4 font-semibold transition-colors hover:bg-white/10"
             >
-              <Phone className="w-5 h-5" />
-              Call +91 98765 43210
+              <Phone className="h-5 w-5" />
+              Call +91 92432 68385
             </a>
           </div>
         </div>
       </section>
-    </div>
+
+        </div>
+  </>
   );
 }

@@ -1,10 +1,17 @@
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
+import { SEO } from '../../components/seo/SEO';
 import { ArrowRight } from 'lucide-react';
 
 export default function About() {
   return (
-    <div className="min-h-screen">
+    <>
+      <SEO
+        title="About SnS Interiors | Premium Interior Design"
+        description="Learn about SnS Interiors, a premium interior design and custom furniture company creating beautiful, functional homes."
+      />
+
+      <div className="min-h-screen">
       {/* Hero */}
       <section className="bg-primary text-primary-foreground py-20">
         <div className="container mx-auto px-6 text-center">
@@ -119,6 +126,7 @@ export default function About() {
           </Link>
         </div>
       </section>
-    </div>
+          </div>
+    </>
   );
 }

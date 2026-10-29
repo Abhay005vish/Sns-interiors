@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { CheckCircle, ArrowRight } from 'lucide-react';
+import { SEO } from '../../components/seo/SEO';
 import { motion } from 'motion/react';
 
 export default function Pricing() {
@@ -93,7 +94,14 @@ export default function Pricing() {
   ];
 
   return (
+  <>
+    <SEO
+      title="Interior Design Pricing | SnS Interiors"
+      description="Explore SnS Interiors interior design packages and pricing for 2BHK, 3BHK and premium homes, including modular kitchens, furniture and installation."
+    />
+
     <div className="min-h-screen">
+      {/* existing Pricing page */}
       {/* Hero Section */}
       <section className="bg-primary text-primary-foreground py-20">
         <div className="container mx-auto px-6 text-center">
@@ -231,6 +239,7 @@ export default function Pricing() {
           </Link>
         </div>
       </section>
-    </div>
+        </div>
+  </>
   );
 }

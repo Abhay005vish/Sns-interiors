@@ -1,7 +1,8 @@
 import { useState } from 'react';
+import { SEO } from '../../components/seo/SEO';
 import { CheckCircle } from 'lucide-react';
 import { motion } from 'motion/react';
-import { projectId, publicAnonKey } from '/utils/supabase/info';
+import { apiFetch } from '../../../utils/supabase/api';
 
 export default function Quote() {
   const [formData, setFormData] = useState({
@@ -39,33 +40,51 @@ export default function Quote() {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
+  e.preventDefault();
 
-    try {
-      const response = await fetch(
-        `https://${projectId}.supabase.co/functions/v1/make-server-664a60c7/quotes`,
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${publicAnonKey}`
-          },
-          body: JSON.stringify(formData)
-        }
-      );
+  if (formData.services.length === 0) {
+    return;
+  }
 
-      if (response.ok) {
-        setSubmitted(true);
-      }
-    } catch (error) {
-      console.error('Error submitting quote request:', error);
-    } finally {
-      setLoading(false);
-    }
-  };
+  setLoading(true);
+
+  try {
+    // 1. Save the quote request
+    await apiFetch('/make-server-664a60c7/quotes', {
+      method: 'POST',
+      body: JSON.stringify(formData),
+    });
+
+    // 2. Automatically create a CRM lead
+    await apiFetch('/make-server-664a60c7/leads', {
+      method: 'POST',
+      body: JSON.stringify({
+        name: formData.name,
+        phone: formData.phone,
+        email: formData.email,
+        budget: formData.budget,
+        propertyType: formData.propertyType,
+        message: formData.description,
+        source: 'Quote Request',
+        status: 'new',
+      }),
+    });
+
+    setSubmitted(true);
+  } catch (error) {
+    console.error('Error submitting quote request:', error);
+  } finally {
+    setLoading(false);
+  }
+};
 
   return (
+  <>
+    <SEO
+      title="Get an Interior Design Quote | SnS Interiors"
+      description="Request a personalized quote from SnS Interiors for home interiors, modular kitchens, custom furniture and complete interior design solutions."
+    />
+
     <div className="min-h-screen">
       {/* Hero */}
       <section className="bg-primary text-primary-foreground py-20">
@@ -289,6 +308,7 @@ export default function Quote() {
           </div>
         </div>
       </section>
-    </div>
+        </div>
+  </>
   );
 }
