@@ -1,3 +1,23 @@
 @import './fonts.css';
 @import './tailwind.css';
 @import './theme.css';
+
+/* =========================================
+   SnS Interiors — Premium SVG Logo
+   The metallic shine is animated inside the SVG
+   and clipped to the actual logo artwork.
+========================================= */
+.sns-logo {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  line-height: 0;
+}
+
+/* Respect users who prefer reduced motion. */
+@media (prefers-reduced-motion: reduce) {
+  .sns-logo animate {
+    display: none;
+  }
+}

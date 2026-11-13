@@ -3498,21 +3498,17 @@ const handleDeleteQuote = async (id: string) => {
         }`}
       >
         {/* Logo */}
-        <div className="px-5 py-5 border-b border-white/10">
-          <p
-            className="text-white font-serif text-lg"
-            style={{
-              fontFamily:
-                'Playfair Display, serif',
-            }}
-          >
-            SnS Interiors
-          </p>
+<div className="flex flex-col items-center px-4 py-6 border-b border-white/10">
+  <img
+    src="/images/sns-logo.png"
+    alt="SnS Interiors"
+    className="w-[200px] max-h-[100px] h-auto object-contain"
+  />
 
-          <p className="text-white/40 text-[10px] font-mono uppercase tracking-widest mt-0.5">
-            Admin Dashboard
-          </p>
-        </div>
+  <p className="mt-3 text-white/40 text-[10px] font-mono uppercase tracking-[0.2em]">
+    Admin Dashboard
+  </p>
+</div>
 
         {/* Nav */}
         <nav className="flex-1 px-3 py-4 space-y-0.5 overflow-y-auto">
